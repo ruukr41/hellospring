@@ -17,14 +17,15 @@ class MemoryMemberRepositoryTest{
         repository.clearStore();
         //위에 메모리멤버 리포지토리 클래스에 public void clearStore(){store.clear();}
         //라는 clearStore라는 메서드를 만들고,store.clear라는 기능을 넣었다.
-//        그리고 여기에 애프터이치라는 어노테이션으로 감싸고 리포지터리에서 클리어스토어 기능을 구현시켰다. 이건 테스트케이스를 만들면 여러번 실행시키기 위해 해야하는거다.
+//        그리고 여기에 애프터이치라는 어노테이션으로 감싸고 리포지터리에서 클리어스토어 기능을 구현시켰다.
+//        이건 테스트케이스를 만들면 여러번 실행시키기 위해 꼭 해야하는거다.
 //실행 돌릴 때 마다 저장 된 값들을 삭제시켜주는거다.
 
     }
 
 MemoryMemberRepository repository = new MemoryMemberRepository();
-//일단 memory memberrepository를 repository라는 멤버들 담을 그릇 명명해준다.
-@Test //세이브 된 멤버값으로 찾기 테스트
+//일단 memoryMemberRepository 를 담을 객체(repository)를 만들어준다.
+@Test //(세이브 된 멤버값으로 찾기 )테스트
 public void save(){
 Member member = new Member();
 member.setName("spring");
@@ -32,17 +33,17 @@ member.setName("spring");
 repository.save(member);
 Member result = repository.findById(member.getId()).get();
 
-// save기능을 실험 해볼거다.
-//@Test를 넣어서 실험해보자.  org.jupiter.api.test가 임포트 되고, save()를 실행 할 수 있게 됐다.
+// save()메서드를 써볼거다.
+//@Test 를 넣어서 실험해보자.  org.jupiter.api.tes t가 임포트 되고, save()를 실행 할 수 있게 됐다.
 //이제 public void save()를 실행해보자. 녹색불 뜨고 실행이 됐다.
-//이제 저장이 되는지를 봐보자. Member member = new member()로 member 메서드 만들어준다.
+//이제 저장이 되는지를 봐보자. Member member = new member()로 member 오브젝트를 만들어준다.
 //repository.save(member); <<리포지토리에다가 세이브 멤버를 해주겠다 뜻.
 //repository.findById((member.getId()); <<리포지토리에 세이버 된 멤버의 ID를 find하겠다.
 // 그 다음 Member result =*****************.get();으로 꺼내겠다.
 
 assertThat(member).isEqualTo(result);
 //    Assertions.assertEquals(member, result);
-//Assertions 주피터 api 임포트.import org.junit.jupiter.api.Assertions;
+//Assertions jupiter api 임포트. import org.junit.jupiter.api.Assertions;
 
 //(Assertions:표명).(assertEquals:같음을 주장하다)(멤버,결과) <멤버와 결과가 같다는걸 주장,표명하겠다.
 // (기댓값, 결과값); 두 값이 동일하면 참, 다르면 false
@@ -53,6 +54,7 @@ assertThat(member).isEqualTo(result);
 @Test //이름으로 찾기 테스트
 public void findByName(){
 Member member1 = new Member();
+//클래스(자료형)[member] 객체변수(참조값저장,인스턴스 핸들)[member1] = 메모리(Headp)할당,인스턴스 생성,참조값 리턴(->객체)[new]   클래스 생성자 호출[member();]
 member1.setName("spring1");//member1에 setName()  spring1 넣어주고
 repository.save(member1);//repository에 스프링1을 save한다.
 
@@ -78,7 +80,7 @@ assertThat(result).isEqualTo(member1);
 @Test
 public void findAll(){
     Member member1 = new Member();
-    //클래스(자료형) 객체변수(참조값저장,인스턴스 핸들) = 메모리(Headp)할당,인스턴스 생성,참조값 리턴(->객체)   클래스 생성자 호출.이라는 뜻
+    //클래스(자료형)[member] 객체변수(참조값저장,인스턴스 핸들)[member1] = 메모리(Headp)할당,인스턴스 생성,참조값 리턴(->객체)[new]   클래스 생성자 호출[member();]
     member1.setName("spring3");
     //참조값이 저장 될 인스턴스 핸들 member1에다가 spring3이라는 Name을 받겠다.는 뜻.
     repository.save(member1);
