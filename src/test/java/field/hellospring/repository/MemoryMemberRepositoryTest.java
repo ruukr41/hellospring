@@ -20,7 +20,7 @@ class MemoryMemberRepositoryTest{
 //        그리고 여기에 애프터이치라는 어노테이션으로 감싸고 리포지터리에서 클리어스토어 기능을 구현시켰다.
 //        이건 테스트케이스를 만들면 여러번 실행시키기 위해 꼭 해야하는거다.
 //실행 돌릴 때 마다 저장 된 값들을 삭제시켜주는거다.
-
+//clearStore.를 실험해보고싶으면 전에 실행했던걸 다시 실행 시켜주는 단축키 alt+shift+f10
     }
 
 MemoryMemberRepository repository = new MemoryMemberRepository();
