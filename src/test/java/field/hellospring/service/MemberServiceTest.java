@@ -40,11 +40,11 @@ class MemberServiceTest{
 
     @BeforeEach
     public void beforeEach() {
-        memberRepository = new MemoryMemberRepository();
-        //비포이치 테스트 순서:1.메모리멤버리포지토리를 만들고 멤버리포지토리에 넣는다.
+    memberRepository = new MemoryMemberRepository();
+    //비포이치 테스트 순서:1.메모리멤버리포지토리를 만들고 멤버리포지토리에 넣는다.
 
-        memberService = new MemberService(memberRepository);
-        //비포이치 테스트 순서:2.멤버리포지토리를 멤버 서비스에 넣는다.
+    memberService = new MemberService(memberRepository);
+    //비포이치 테스트 순서:2.멤버리포지토리를 멤버 서비스에 넣는다.
 
     }
     //이렇게 비포이치해주면 테스트가 각각 독립적으로 실행 된다.)
@@ -52,8 +52,8 @@ class MemberServiceTest{
     public void AfterEach(){
         memberRepository.clearStore();
     }
-//        애프터이치라는 어노테이션으로 memberRepository.에서 클리어스토어 기능을 구현시켰다.
-//        이건 테스트케이스를 만들면 여러번 실행시키기 위해 꼭 해야하는거다.
+//애프터이치라는 어노테이션으로 memberRepository.에서 클리어스토어 기능을 구현시켰다.
+//이건 테스트케이스를 만들면 여러번 실행시키기 위해 꼭 해야하는거다.
 //실행 돌릴 때 마다 저장 된 값들을 삭제시켜주는거다.
 //clearStore.를 실험해보고싶으면 전에 실행했던걸 다시 실행 시켜주는 단축키 alt+shift+f10
 
