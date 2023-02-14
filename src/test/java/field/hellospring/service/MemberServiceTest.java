@@ -70,7 +70,7 @@ class MemberServiceTest{
         long saveId = memberService.join(member);
 
         //then:결과.
-        Member findMember=memberService.findOne(saveId).get();
+        Member findMember=memberService.fxxindOne(saveId).get();
         assertThat(member.getName()).isEqualTo(findMember.getName());
 
     }
